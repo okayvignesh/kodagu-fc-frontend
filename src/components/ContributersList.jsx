@@ -102,7 +102,7 @@ const router = useRouter();
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {donations.length > 0 ? (
-                donations.map((item, index) => (
+                [...donations].reverse().map((item, index) => (
                   <tr key={item.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{index + 1}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.name}</td>

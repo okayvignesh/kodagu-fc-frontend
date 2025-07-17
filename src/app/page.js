@@ -329,7 +329,7 @@ export default function Home() {
                   }}
                   className="bg-white flex flex-col gap-3 p-3 rounded-[10px] shadow-md h-full"
                 >
-                  <div className="flex flex-col bg-white gap-1 px-1 py-3 border-b border-b-[#E3E3E3]">
+                  <div className="flex flex-col bg-white gap-1 px-1 py-3">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
                         <p className="font-medium text-[20px]">{donation.name}</p>
@@ -337,9 +337,8 @@ export default function Home() {
                       </div>
                       <p className="font-semibold text-[20px]">&#8377;{donation.amount}</p>
                     </div>
-
                   </div>
-                  <p className="text-[20px] italic">&quot;{donation.message}&quot;</p>
+                  {/* <p className="text-[20px] italic">&quot;{donation.message}&quot;</p> */}
                 </div>
               </SwiperSlide>
             ))}
@@ -362,7 +361,7 @@ export default function Home() {
                 setOpenGrid(true);
               }}
               className="bg-white flex flex-col gap-3 p-3 rounded-[10px] shadow-md h-full">
-              <div className="flex flex-col bg-white  gap-1 px-1 py-3 border-b border-b-[#E3E3E3]">
+              <div className="flex flex-col bg-white  gap-1 px-1 py-3 ">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <div className="w-[54px] h-[54px] rounded-full bg-[linear-gradient(to_bottom,_#145133,_#0C4520,_#31733F)]
@@ -378,7 +377,7 @@ export default function Home() {
                 </div>
 
               </div>
-              <p className="text-[20px] italic">&quot;{donation.message}&quot;</p>
+              {/* <p className="text-[20px] italic">&quot;{donation.message}&quot;</p> */}
             </div>
 
           ))}
