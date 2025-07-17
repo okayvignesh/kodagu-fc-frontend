@@ -172,7 +172,7 @@ export default function Home() {
             </div>
 
             {/* Circular Progress Card */}
-            <div className="flex flex-col shadow-md gap-2 border border-gray-300 rounded-lg p-5 bg-gradient-to-b from-[#145133] via-[#0C4520] to-[#31733F] h-[200px]">
+            <div className="flex flex-col shadow-md gap-2 border border-gray-300 rounded-lg p-5 bg-gradient-to-b from-[#145133] via-[#0C4520] to-[#31733F] h-[180px]">
               <div className="flex justify-between items-center gap-3">
                 <p className="text-white text-[20px] lg:text-[22px] flex-1 leading-tight">Percentage of field funded</p>
                 <div className="flex-shrink-0">
