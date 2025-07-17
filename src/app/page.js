@@ -161,120 +161,106 @@ export default function Home() {
     <div className="w-full flex flex-col gap-10 workSans">
       <div><Header setOpenForm={setOpenForm} /></div>
       <div className="-mt-10 ">
-        <div className="flex lg:flex-row flex-col lg:gap-[100px] gap-[50px]  lg:px-[40px] md:px-10 px-5 pb-10 ">
-          <div className="lg:max-w-[472px] w-full  flex flex-col gap-8">
-            <div className="flex flex-col  lg:flex-row gap-3 w-full">
-              <p className="text-[20px] text-justify  w-full mt-5  lg:hidden font-medium">Join us in building Kodagu’s first all-weather football field; ensuring every
-                aspiring player trains year-round and competes equally with their urban peers.</p>
+        <div className="flex flex-col lg:flex-row items-start lg:gap-[80px] gap-[40px] px-5 md:px-10 lg:px-[40px] pb-10">
+          {/* Left Section */}
+          <div className="w-full lg:max-w-[472px] flex flex-col gap-7">
+            {/* Top Message for Mobile */}
+            <div className="flex flex-col lg:flex-row gap-3 w-full">
+              <p className="text-[20px] text-justify w-full mt-5 lg:hidden font-medium">
+                Join us in building Kodagu’s first all-weather football field; ensuring every aspiring player trains year-round and competes equally with their urban peers.
+              </p>
             </div>
 
-            <div className="flex flex-col shadow-md gap-2  border border-gray-300 rounded-lg p-5 bg-[linear-gradient(to_bottom,_#145133,_#0C4520,_#31733F)] h-[200px]">
+            {/* Circular Progress Card */}
+            <div className="flex flex-col shadow-md gap-2 border border-gray-300 rounded-lg p-5 bg-gradient-to-b from-[#145133] via-[#0C4520] to-[#31733F] h-[200px]">
               <div className="flex justify-between items-center gap-3">
                 <p className="text-white text-[20px] lg:text-[22px] flex-1 leading-tight">Percentage of field funded</p>
                 <div className="flex-shrink-0">
                   <CircularProgressBar boughtPercentage={boughtPercentage} />
                 </div>
               </div>
-              <button onClick={() => setOpenForm(true)} className="bg-white text-black px-3 py-2 rounded-[10px] cursor-pointer shadow-sm outline-0 ">Contribute Now</button>
+              <button
+                onClick={() => setOpenForm(true)}
+                className="bg-white text-black px-3 py-2 rounded-[10px] cursor-pointer shadow-sm outline-0"
+              >
+                Contribute Now
+              </button>
             </div>
 
-            <div className="rounded-[16px]  p-5  border gap-y-3 border-[#E3E3E3] shadow-md">
+            {/* Total Contributors */}
+            <div className="rounded-[16px] p-5 border gap-y-3 border-[#E3E3E3] shadow-md">
               <div className="flex justify-between gap-2">
                 <p>Total Contributors</p>
-                <Image
-                  src="/icons/users.svg"
-                  alt="usericon"
-                  width={18}
-                  height={19}
-                />
+                <Image src="/icons/users.svg" alt="usericon" width={18} height={19} />
               </div>
               <div className="flex justify-between items-end gap-1">
                 <p className="font-bold text-[36px]">{totalContributers}</p>
-                <div
-                  onClick={() => {
-                    setOpenList(true);
-
-                  }}
-                  className="flex">
-                  <p className="underline font-semibold cursor-pointer">Contributors List</p> <ArrowUpRight />
+                <div onClick={() => setOpenList(true)} className="flex items-center gap-1 cursor-pointer">
+                  <p className="underline font-semibold">Contributors List</p> <ArrowUpRight />
                 </div>
               </div>
             </div>
-            <div className="shadow-md rounded-[15px]"> <ChartBarLabel data={donations} /></div>
+
+            {/* Chart */}
+            <div className="shadow-md rounded-[15px]">
+              <ChartBarLabel data={donations} />
+            </div>
           </div>
 
-
-          <div className="flex flex-col gap-7  w-full  ">
+          {/* Right Section */}
+          <div className="flex flex-col gap-7 w-full">
             <div className="flex justify-between items-center">
-              <div className="flex  justify-between items-center">
-                <p className="md:text-[28px] text-[20px]  workSans tracking-normal lg:hidden  font-bold  ">Your support, builds the field.<br />
-                  The field, enables learning. <br />
-                  That Learning, equips the aspiring. </p>
-
-              </div>
-
+              <p className="md:text-[28px] text-[20px] workSans tracking-normal lg:hidden font-bold">
+                Your support, builds the field. <br />
+                The field, enables learning. <br />
+                That Learning, equips the aspiring.
+              </p>
             </div>
-            <div className="grid lg:grid-cols-2 grid-cols-1   gap-2 gap-y-3">
-              <div
 
-                className={`flex flex-col gap-2 w-full  p-[13.24px_11px] rounded-[5.52px]  shadow-md 
-        bg-[linear-gradient(to_bottom,_#145133,_#0C4520,_#31733F)] text-white `}>
-                <div className="flex justify-between"><p>Total fund raised</p>
+            {/* Fund Stats Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              <div className="flex flex-col gap-2 w-full p-4 rounded-[5.52px] shadow-md bg-gradient-to-b from-[#145133] via-[#0C4520] to-[#31733F] text-white">
+                <div className="flex justify-between">
+                  <p>Total fund raised</p>
                   <FaHeart />
                 </div>
-                <p className="font-bold text-[24px] ">
-                  &#8377; {totalFundraised}
-                </p>
+                <p className="font-bold text-[24px]">&#8377; {totalFundraised}</p>
               </div>
 
-              <div
-
-                className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
-       bg-white text-black border border-[#E3E3E3]
-        `}>
-                <div className="flex justify-between"><p>The Gap</p>
+              <div className="flex flex-col gap-2 w-full p-4 rounded-[5.52px] shadow-md bg-white text-black border border-[#E3E3E3]">
+                <div className="flex justify-between">
+                  <p>The Gap</p>
                   <TiDocumentText />
                 </div>
-                <p className="font-bold text-[24px] ">
-                  &#8377; {fundGap}
-                </p>
+                <p className="font-bold text-[24px]">&#8377; {fundGap}</p>
               </div>
-              <div
 
-                className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
-         : 'bg-white text-black border border-[#E3E3E3]'}
-        `}>
-                <div className="flex justify-between"><p>Total sq.ft funded</p>
+              <div className="flex flex-col gap-2 w-full p-4 rounded-[5.52px] shadow-md bg-white text-black border border-[#E3E3E3]">
+                <div className="flex justify-between">
+                  <p>Total sq.ft funded</p>
                   <MdFullscreen />
                 </div>
-                <p className="font-bold text-[24px] ">
-                  {TotalGrids} sq.ft
-                </p>
+                <p className="font-bold text-[24px]">{TotalGrids} sq.ft</p>
               </div>
 
-
-              <div
-
-                className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
-       bg-white text-black border border-[#E3E3E3]
-        `}>
-                <div className="flex justify-between"><p>The Gap</p>
+              <div className="flex flex-col gap-2 w-full p-4 rounded-[5.52px] shadow-md bg-white text-black border border-[#E3E3E3]">
+                <div className="flex justify-between">
+                  <p>The Gap</p>
                   <TiDocumentText />
                 </div>
-                <p className="font-bold text-[24px] ">
-                  {gap} sq.ft
-                </p>
+                <p className="font-bold text-[24px]">{gap} sq.ft</p>
               </div>
-
             </div>
-            <div className="flex flex-col   gap-[7px] border border-[#E3E3E3] rounded-[20px] p-[13.24px_11px] shadow-md ">
+
+            {/* Pitch Image Grid */}
+            <div className="flex flex-col gap-[7px] border border-[#E3E3E3] rounded-[20px] p-4 shadow-md">
               <p className="font-bold">1 Grid = 1 sq.ft = &#8377;500</p>
               <div
-                className="relative w- max-w-full aspect-[16/10] cursor-pointer rounded-lg overflow-hidden"
-
+                className="relative w-full aspect-[16/10] cursor-pointer rounded-lg overflow-hidden"
                 onClick={() => setOpenGrid(true)}
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
               >
-                {/* Grayscale background image */}
                 <img
                   src="/images/footballPitch.jpg"
                   alt="Football pitch"
@@ -282,32 +268,24 @@ export default function Home() {
                   width={689}
                   className="absolute top-0 left-0 w-full h-full object-cover filter grayscale"
                 />
-
-                {/* Colored overlay clipped based on percentage */}
                 <img
                   src="/images/footballPitch.jpg"
                   alt="Colored overlay"
                   className="absolute top-0 left-0 w-full h-full object-cover"
                   height={487}
                   width={689}
-                  style={{
-                    clipPath: `inset(0 ${100 - boughtPercentage}% 0 0)`,
-                    zIndex: 10,
-                  }}
+                  style={{ clipPath: `inset(0 ${100 - boughtPercentage}% 0 0)`, zIndex: 10 }}
                 />
-
-                {/* Tooltip */}
                 {showTooltip && (
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-80 text-black px-4 py-2 rounded-md text-sm font-medium z-20">
                     Open Grid
                   </div>
                 )}
               </div>
-
-
             </div>
           </div>
         </div>
+
         <div className="flex flex-col gap-7 mx-5 md:mx-10  rounded-lg  md:px-10 md:py-11 p-5 bg-[url('/images/bgrecentdonations.png')] mb-10 bg-no-repeat bg-cover" >
           <div className="flex items-center gap-2  md:text-[40px]  text-[24px] font-bold text-white md:-mt-5 -mt-2 ">
             <TfiArrowTopRight className="mt-3" />
