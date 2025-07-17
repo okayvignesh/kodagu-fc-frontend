@@ -22,7 +22,7 @@ const CircularProgressBar = ({boughtPercentage}) => {
   const degree = (boughtPercentage / 100) * 360;
 
   return (
-    <div className="w-20 h-20 relative flex items-center justify-center workSans flex-shrink-0">
+    <div className="w-24 h-24 relative flex items-center justify-center workSans flex-shrink-0">
       <div
         className="w-full h-full rounded-full"
         style={{

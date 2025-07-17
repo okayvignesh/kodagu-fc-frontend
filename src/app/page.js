@@ -155,18 +155,29 @@ export default function Home() {
   const boughtPercentage = bougntGrids.toFixed(2);
   console.log("total", boughtPercentage);
   const totalContributers = donations.length;
-  const gap = 100000 - TotalGrids
+  const gap = 100000 - TotalGrids;
+  const fundGap = 50000000 - totalFundraised;
   return (
     <div className="w-full flex flex-col gap-10 workSans">
       <div><Header setOpenForm={setOpenForm} /></div>
       <div className="-mt-10 ">
         <div className="flex lg:flex-row flex-col lg:gap-[100px] gap-[50px]  lg:px-[40px] md:px-10 px-5 pb-10 ">
-          <div className="lg:max-w-[472px] w-full  flex flex-col gap-7">
+          <div className="lg:max-w-[472px] w-full  flex flex-col gap-8">
             <div className="flex flex-col  lg:flex-row gap-3 w-full">
-
               <p className="text-[20px] text-justify  w-full mt-5  lg:hidden font-medium">Join us in building Kodagu’s first all-weather football field; ensuring every
                 aspiring player trains year-round and competes equally with their urban peers.</p>
             </div>
+
+            <div className="flex flex-col shadow-md gap-2  border border-gray-300 rounded-lg p-5 bg-[linear-gradient(to_bottom,_#145133,_#0C4520,_#31733F)] h-[200px]">
+              <div className="flex justify-between items-center gap-3">
+                <p className="text-white text-[20px] lg:text-[22px] flex-1 leading-tight">Percentage of field funded</p>
+                <div className="flex-shrink-0">
+                  <CircularProgressBar boughtPercentage={boughtPercentage} />
+                </div>
+              </div>
+              <button onClick={() => setOpenForm(true)} className="bg-white text-black px-3 py-2 rounded-[10px] cursor-pointer shadow-sm outline-0 ">Contribute Now</button>
+            </div>
+
             <div className="rounded-[16px]  p-5  border gap-y-3 border-[#E3E3E3] shadow-md">
               <div className="flex justify-between gap-2">
                 <p>Total Contributors</p>
@@ -190,17 +201,9 @@ export default function Home() {
               </div>
             </div>
             <div className="shadow-md rounded-[15px]"> <ChartBarLabel data={donations} /></div>
-
-            <div className="flex flex-col shadow-md gap-2  border border-gray-300 rounded-lg p-5 bg-[linear-gradient(to_bottom,_#145133,_#0C4520,_#31733F)]">
-              <div className="flex justify-between items-center gap-3">
-                <p className="text-white text-[20px] lg:text-[22px] flex-1 leading-tight">Percentage of field funded</p>
-                <div className="flex-shrink-0">
-                  <CircularProgressBar boughtPercentage={boughtPercentage} />
-                </div>
-              </div>
-              <button onClick={() => setOpenForm(true)} className="bg-white text-black px-3 py-2 rounded-[10px] cursor-pointer shadow-sm outline-0 ">Contribute Now</button>
-            </div>
           </div>
+
+
           <div className="flex flex-col gap-7  w-full  ">
             <div className="flex justify-between items-center">
               <div className="flex  justify-between items-center">
@@ -223,18 +226,7 @@ export default function Home() {
                   &#8377; {totalFundraised}
                 </p>
               </div>
-              <div
 
-                className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
-         : 'bg-white text-black border border-[#E3E3E3]'}
-        `}>
-                <div className="flex justify-between"><p>Total sq ft funded</p>
-                  <MdFullscreen />
-                </div>
-                <p className="font-bold text-[24px] ">
-                  {TotalGrids} sq ft
-                </p>
-              </div>
               <div
 
                 className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
@@ -244,20 +236,36 @@ export default function Home() {
                   <TiDocumentText />
                 </div>
                 <p className="font-bold text-[24px] ">
-                  {gap} sq. ft
+                  &#8377; {fundGap}
                 </p>
               </div>
               <div
 
-                className={`flex flex-col gap-2  p-[13.24px_11px] rounded-[5.52px]  shadow-md w-full
-         bg-white text-black border border-[#E3E3E3]} `}>
-                <div className="flex justify-between"><p>Day Number</p>
-                  <Calendar size={15} />
+                className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
+         : 'bg-white text-black border border-[#E3E3E3]'}
+        `}>
+                <div className="flex justify-between"><p>Total sq.ft funded</p>
+                  <MdFullscreen />
                 </div>
                 <p className="font-bold text-[24px] ">
-                  {dayCount}
+                  {TotalGrids} sq.ft
                 </p>
               </div>
+
+
+              <div
+
+                className={`flex flex-col gap-2 w-full p-[13.24px_11px] rounded-[5.52px]  shadow-md 
+       bg-white text-black border border-[#E3E3E3]
+        `}>
+                <div className="flex justify-between"><p>The Gap</p>
+                  <TiDocumentText />
+                </div>
+                <p className="font-bold text-[24px] ">
+                  {gap} sq.ft
+                </p>
+              </div>
+
             </div>
             <div className="flex flex-col   gap-[7px] border border-[#E3E3E3] rounded-[20px] p-[13.24px_11px] shadow-md ">
               <p className="font-bold">1 Grid = 1 sq.ft = &#8377;500</p>
