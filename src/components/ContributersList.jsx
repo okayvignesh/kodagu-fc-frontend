@@ -14,7 +14,7 @@ const ContributersList = ({ onClose, data }) => {
   const [nextUrl, setNextUrl] = useState(null);
   const [prevUrl, setPrevUrl] = useState(null);
   const [currentUrl, setCurrentUrl] = useState(ENDPOINTS.GETCONTRIBUTORLIST);
-const router = useRouter();
+  const router = useRouter();
   const fetchContributors = (url) => {
     fetch(url)
       .then((res) => {
@@ -40,29 +40,29 @@ const router = useRouter();
     const timeoutId = setTimeout(() => {
       const queryUrl = `${ENDPOINTS.GETCONTRIBUTORLIST}?query=${encodeURIComponent(searchTerm)}`;
       fetchContributors(queryUrl);
-    }, 500); 
+    }, 500);
 
     return () => clearTimeout(timeoutId);
   }, [searchTerm]);
 
-   useEffect(() => {
-      // Push a dummy state when modal opens
-      window.history.pushState({ modalOpen: true }, '');
-  
-      const handlePopState = () => {
-        if (onClose) {
-          onClose(); // close modal
-        } else {
-          router.replace('/'); // fallback to redirecting home
-        }
-      };
-  
-      window.addEventListener('popstate', handlePopState);
-  
-      return () => {
-        window.removeEventListener('popstate', handlePopState);
-      };
-    }, [router, onClose]);
+  useEffect(() => {
+    // Push a dummy state when modal opens
+    window.history.pushState({ modalOpen: true }, '');
+
+    const handlePopState = () => {
+      if (onClose) {
+        onClose(); // close modal
+      } else {
+        router.replace('/'); // fallback to redirecting home
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [router, onClose]);
   return (
     <div className='fixed inset-0 backdrop-blur bg-opacity-30 flex justify-center items-center z-50'>
       <div className='w-full h-full bg-white p-6 rounded-2xl shadow-md'>
@@ -96,7 +96,7 @@ const router = useRouter();
                 <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Name</th>
                 <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Grids</th>
                 <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Messages</th>
+                <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider w-100">Messages</th>
                 <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Show Grids</th>
               </tr>
             </thead>
@@ -108,7 +108,7 @@ const router = useRouter();
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.grids}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">&#8377;{item.amount}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.message}</td>
+                    <td className="px-6 py-4 text-sm text-gray-900 w-100 whitespace-normal break-words">{item.message}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <button
                         onClick={() => {
