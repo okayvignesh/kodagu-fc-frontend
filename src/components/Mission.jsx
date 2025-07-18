@@ -126,13 +126,13 @@ const Mission = () => {
     const renderProblemContent = () => (
         <div className="space-y-6">
             <div className="text-start">
-                <p className="text-lg text-gray-800 mb-4">
+                <p className="text-base md:text-lg text-gray-800 mb-4">
                     Despite being home to generations of athletic talent and a rich sporting culture, Kodagu faces
                     a critical barrier in nurturing its young footballers. The region's intense five to six-month
                     monsoon season renders natural grounds and grass fields unplayable. This disruption every
                     year hurts the aspirations of talented young footballers of the province.
                 </p>
-                <p className="text-gray-800 text-lg">
+                <p className="text-gray-800 text-base md:text-lg">
                     The lack of infrastructure which supports training under all weather conditions, not only
                     widens the gap between rural and urban football ecosystems but also robs local talent of their
                     chance to compete on equal footing. It limits access, breaks momentum, discourages quality
@@ -140,19 +140,19 @@ const Mission = () => {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
-                    <div className="text-3xl font-bold text-red-600">5-6</div>
-                    <div className="text-sm text-red-700 font-medium">Months of Disruption by Monsoon</div>
+                    <div className="text-2xl md:text-3xl font-bold text-red-600">5-6</div>
+                    <div className="text-xs md:text-sm text-red-700 font-medium">Months of Disruption by Monsoon</div>
                 </div>
                 <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
-                    <div className="text-3xl font-bold text-red-600">100%</div>
-                    <div className="text-sm text-red-700 font-medium">Fields Unplayable</div>
+                    <div className="text-2xl md:text-3xl font-bold text-red-600">100%</div>
+                    <div className="text-xs md:text-sm text-red-700 font-medium">Fields Unplayable</div>
                 </div>
             </div>
 
             <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4 flex items-center">
                     <div className="w-1 h-6 bg-red-500 rounded-full mr-3"></div>
                     The Scale of Set Back
                 </h3>
@@ -163,7 +163,7 @@ const Mission = () => {
                                 onClick={() => setExpandedProblem(expandedProblem === category.id ? null : category.id)}
                                 className="w-full px-4 py-3 flex items-center hover:bg-red-50 transition-colors duration-200"
                             >
-                                <span className="text-red-500 text-xl font-bold mr-3">
+                                <span className="text-red-500 text-lg md:text-xl font-bold mr-3">
                                     {expandedProblem === category.id ? '−' : '+'}
                                 </span>
                                 <span className="font-semibold text-gray-800 cursor-pointer text-left">{category.title}</span>
@@ -193,22 +193,22 @@ const Mission = () => {
     const renderSolutionContent = () => (
         <div className="space-y-6">
             <div className="text-start">
-                <p className="text-lg text-gray-800 mb-4">
+                <p className="text-base md:text-lg text-gray-800 mb-4">
                     A FIFA-certified artificial football turf will transform Kodagu's football landscape
                     by providing consistent, world-class training conditions year-round.
                 </p>
             </div>
 
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-green-800 mb-3">Expected Outcomes</h3>
-                <p className="text-green-700">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4 md:p-6">
+                <h3 className="text-base md:text-lg font-semibold text-green-800 mb-3">Expected Outcomes</h3>
+                <p className="text-green-700 text-sm md:text-base">
                     The all-weather facility will enable continuous player development, attract better
                     coaching talent, and position Kodagu as a premier footballing destination in the region.
                 </p>
             </div>
 
             <div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-800 mb-4 flex items-center">
                     <div className="w-1 h-6 bg-green-500 rounded-full mr-3"></div>
                     The Solution: Key Areas of Impact
                 </h3>
@@ -225,7 +225,7 @@ const Mission = () => {
                                 }
                                 className="w-full px-4 py-3 flex items-center hover:bg-green-50 transition-colors duration-200"
                             >
-                                <span className="text-green-500 text-xl font-bold mr-3">
+                                <span className="text-green-500 text-lg md:text-xl font-bold mr-3">
                                     {expandedSolution === category.id ? '−' : '+'}
                                 </span>
                                 <span className="font-semibold text-gray-800 cursor-pointer text-left">
@@ -256,18 +256,18 @@ const Mission = () => {
     );
 
     const renderMissionContent = () => (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
-            <h3 className="text-xl font-semibold text-gray-800">Our Mission</h3>
-            <p className="text-gray-700 text-justify">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-6 space-y-4">
+            <h3 className="text-lg md:text-xl font-semibold text-gray-800">Our Mission</h3>
+            <p className="text-gray-700 text-sm md:text-base text-justify">
                 To upgrade and build our existing natural grass football field into a world-class, FIFA-standard,
                 all-weather football facility that enables the youth of Kodagu to access year-round, world-class training.
             </p>
-            <p className="text-gray-700 text-justify">
+            <p className="text-gray-700 text-sm md:text-base text-justify">
                 It's about providing aspiring youth with a consistent, safe, and professional-grade environment
                 to train and compete, regardless of the season. Our goal is to remove seasonal disruptions and
                 enable year-round development for hundreds of young footballers in the province.
             </p>
-            <p className="text-gray-700 text-justify">
+            <p className="text-gray-700 text-sm md:text-base text-justify">
                 We aim to achieve this vision with the support of all well-wishers of humanity and the collective
                 strength of communities that believe in nurturing and promoting a strong sporting and footballing culture.
             </p>
@@ -294,33 +294,32 @@ const Mission = () => {
         <div className="h-fit bg-gray-50 py-12 px-4">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                         Why This Matters?
                     </h1>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div className="border-b border-gray-200">
-                        <nav className="flex">
+                        <nav className="flex flex-wrap">
                             {tabs.map((tab) => (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex-1 py-4 px-6 text-center cursor-pointer font-medium transition-all duration-200 ${activeTab === tab.id
+                                    className={`flex-1 py-3 px-2 sm:py-4 sm:px-6 text-center cursor-pointer font-medium transition-all duration-200 ${activeTab === tab.id
                                         ? 'border-b-2 border-green-500 text-green-700 bg-green-50'
                                         : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
                                         }`}
                                 >
                                     <div className="flex items-center justify-center space-x-2">
-                                        <span className="text-2xl">{tab.icon}</span>
-                                        <span className="hidden sm:inline">{tab.label}</span>
+                                        <span className="text-sm sm:text-base">{tab.label}</span>
                                     </div>
                                 </button>
                             ))}
                         </nav>
                     </div>
 
-                    <div className="p-8 md:p-12">
+                    <div className="p-4 sm:p-8 md:p-12">
                         <div className="transition-all duration-300 ease-in-out">
                             {renderContent()}
                         </div>
