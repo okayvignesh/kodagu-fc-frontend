@@ -371,7 +371,8 @@ export default function Home() {
 
           </div>
         </div>
-        <div className="md:p-10 p-5 flex flex-col gap-3">
+        
+        {/* <div className="md:p-10 p-5 flex flex-col gap-3">
           <p className="text-transparent bg-clip-text md:text-[40px] text-[24px] font-extrabold"
             style={{
               backgroundImage: 'linear-gradient(to bottom, #145133, #0C4520, #31733F)',
@@ -392,7 +393,8 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-          </div></div>
+          </div>
+        </div> */}
 
         <Mission />
 

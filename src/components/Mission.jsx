@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Pitch from '../../public/images/publicpitch.png';
 
 const Mission = () => {
     const [activeTab, setActiveTab] = useState('problem');
@@ -141,11 +142,11 @@ const Mission = () => {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+                <div className="bg-red-50 bg-opacity-70 border border-red-200 rounded-lg p-4 text-center backdrop-blur-md">
                     <div className="text-2xl md:text-3xl font-bold text-red-600">5-6</div>
                     <div className="text-xs md:text-sm text-red-700 font-medium">Months of Disruption by Monsoon</div>
                 </div>
-                <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-center">
+                <div className="bg-red-50 bg-opacity-70 border border-red-200 rounded-lg p-4 text-center backdrop-blur-md">
                     <div className="text-2xl md:text-3xl font-bold text-red-600">100%</div>
                     <div className="text-xs md:text-sm text-red-700 font-medium">Fields Unplayable</div>
                 </div>
@@ -158,10 +159,10 @@ const Mission = () => {
                 </h3>
                 <div className="space-y-3">
                     {problemCategories.map((category, index) => (
-                        <div key={category.id} className="bg-white border border-red-200 pointer rounded-lg overflow-hidden">
+                        <div key={category.id} className="bg-white bg-opacity-70 border border-red-200 pointer rounded-lg overflow-hidden backdrop-blur-md">
                             <button
                                 onClick={() => setExpandedProblem(expandedProblem === category.id ? null : category.id)}
-                                className="w-full px-4 py-3 flex items-center hover:bg-red-50 transition-colors duration-200"
+                                className="w-full px-4 py-3 flex items-center hover:bg-red-50 hover:bg-opacity-80 transition-colors duration-200"
                             >
                                 <span className="text-red-500 text-lg md:text-xl font-bold mr-3">
                                     {expandedProblem === category.id ? '−' : '+'}
@@ -199,7 +200,7 @@ const Mission = () => {
                 </p>
             </div>
 
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4 md:p-6">
+            <div className="bg-green-50 bg-opacity-70 border border-green-200 rounded-lg p-4 md:p-6 backdrop-blur-md">
                 <h3 className="text-base md:text-lg font-semibold text-green-800 mb-3">Expected Outcomes</h3>
                 <p className="text-green-700 text-sm md:text-base">
                     The all-weather facility will enable continuous player development, attract better
@@ -217,13 +218,13 @@ const Mission = () => {
                     {solutionCategories.map((category) => (
                         <div
                             key={category.id}
-                            className="bg-white border border-green-200 pointer rounded-lg overflow-hidden"
+                            className="bg-white bg-opacity-70 border border-green-200 pointer rounded-lg overflow-hidden backdrop-blur-md"
                         >
                             <button
                                 onClick={() =>
                                     setExpandedSolution(expandedSolution === category.id ? null : category.id)
                                 }
-                                className="w-full px-4 py-3 flex items-center hover:bg-green-50 transition-colors duration-200"
+                                className="w-full px-4 py-3 flex items-center hover:bg-green-50 hover:bg-opacity-80 transition-colors duration-200"
                             >
                                 <span className="text-green-500 text-lg md:text-xl font-bold mr-3">
                                     {expandedSolution === category.id ? '−' : '+'}
@@ -256,7 +257,7 @@ const Mission = () => {
     );
 
     const renderMissionContent = () => (
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-6 space-y-4">
+        <div className="bg-gray-50 bg-opacity-70 border border-gray-200 rounded-lg p-4 md:p-6 space-y-4 backdrop-blur-md">
             <h3 className="text-lg md:text-xl font-semibold text-gray-800">Our Mission</h3>
             <p className="text-gray-700 text-sm md:text-base text-justify">
                 To upgrade and build our existing natural grass football field into a world-class, FIFA-standard,
@@ -291,41 +292,50 @@ const Mission = () => {
     };
 
     return (
-        <div className="h-fit bg-gray-50 py-12 px-4">
+        <div
+            className="h-fit min-h-screen py-20 px-4 md:px-10"
+            style={{
+                backgroundImage: `url('/images/publicpitch.png')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundAttachment: "fixed",
+            }}
+        >
             <div className="max-w-6xl mx-auto">
-                <div className="text-center mb-12">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                        Why This Matters?
+                <div className="text-center mb-10">
+                    <h1 className="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+                        About the Project
                     </h1>
+                    <h3 className="text-xl lg:text-3xl font-semibold text-white">
+                        Why This Matters?
+                    </h3>
                 </div>
 
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                     <div className="border-b border-gray-200">
-                        <nav className="flex flex-wrap">
+                        <nav className="flex">
                             {tabs.map((tab) => (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex-1 py-3 px-2 sm:py-4 sm:px-6 text-center cursor-pointer font-medium transition-all duration-200 ${activeTab === tab.id
-                                        ? 'border-b-2 border-green-500 text-green-700 bg-green-50'
-                                        : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
-                                        }`}
+                                    className={`flex-1 py-4 text-center font-medium transition-all duration-200 ${
+                                        activeTab === tab.id
+                                            ? 'border-b-2 border-green-500 text-green-700 bg-green-50'
+                                            : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
+                                    }`}
                                 >
-                                    <div className="flex items-center justify-center space-x-2">
-                                        <span className="text-sm sm:text-base">{tab.label}</span>
-                                    </div>
+                                    <span className="text-sm sm:text-base">{tab.label}</span>
                                 </button>
                             ))}
                         </nav>
                     </div>
 
-                    <div className="p-4 sm:p-8 md:p-12">
+                    <div className="p-6 sm:p-8 md:p-10">
                         <div className="transition-all duration-300 ease-in-out">
                             {renderContent()}
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
