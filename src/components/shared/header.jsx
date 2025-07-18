@@ -11,8 +11,9 @@ const Header = ({ setOpenForm }) => {
         <div>
           <Image src="/images/logo_main.png" alt="Logo" width={350} height={145} />
         </div>
-        <p className='text-[20px] text-left px-3 font-medium hidden lg:block mt-3'>Support Us in Building an <br/> All-Weather Football Field in Kodagu.
-          Help Our Youth Train Throughout the Year.</p>
+        <p className='text-[20px] text-left px-3 font-medium hidden lg:block'>Support Us Build an
+          All-Weather Football Field in Kodagu.
+          Help our Youth Train All Year Round.</p>
       </div>
       <div className='flex items-center lg:justify-between  justify-end w-full gap-5 mt-[5px]'>
         <p className='text-[24px] text-justify max-w-[600px] font-bold hidden lg:block'>Your Support, Builds The Field. <br></br>The Field, Enables Learning.<br></br> That Learning, Equips The Aspiring.</p>

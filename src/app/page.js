@@ -22,6 +22,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Header from "@/components/shared/header";
+import Mission from "@/components/Mission";
 
 
 const imageData = [
@@ -393,6 +394,8 @@ export default function Home() {
             </div>
           </div></div>
 
+        <Mission />
+
         <div className="md:p-10 p-5 flex flex-col gap-11">
           <h1 className="md:text-[40px] text-[28px] font-bold  ">Gallery</h1>
           <div className="relative overflow-hidden">
@@ -428,6 +431,7 @@ export default function Home() {
             </Swiper>
           </div>
         </div>
+
         <div className="flex flex-col gap-10 md:p-10  p-0 py-5 px-2 bg-[#F7F7F7]">
           <h1 className="md:text-[40px]  text-[28px] font-bold pl-3 ">FAQ's </h1>
           <div className="flex  flex-col gap-2">
@@ -435,54 +439,42 @@ export default function Home() {
               onClick={() => handleToggle(0)}
             >
               <div className="h-6 w-6 shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                <span className="pb-[4px]">{openIndex === 0 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">What is this fundraising initiative about?</p> </div>
-            {openIndex === 0 && (<p className="md:text-[20px] text-[16px] font-light  pl-8">We are raising funds to build a FIFA-standard artificial turf football field in
-              Kodagu — an all-weather facility that will serve as the home ground for Kodagu
-              FC and a hub for football education in the region. The larger vision is to create a
-              full-fledged football centre with supporting infrastructure which can make the
-              sport accessible to aspiring footballers.</p>
+                <span className="pb-[4px]">{openIndex === 0 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl"> How can I support this project?</p> </div>
+            {openIndex === 0 && (<p className="md:text-[20px] text-[16px] font-light  pl-8">You can support by contributing towards the project by donating as many grids you would
+              want. Each grid you contribute represents each square feet that this project cost is divided
+              by. The target to achieve is 1lac Square feet.
+            </p>
             )}
           </div>
           <div className="flex flex-col text-[20px]">
             <div className="flex   md:items-center items-start gap-2  font-bold text-[24px]"
               onClick={() => handleToggle(1)}>
               <div className="h-6 w-6 shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                <span className="pb-[4px]">{openIndex === 1 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">What is the problem we are trying to solve?</p></div>
-            {openIndex === 1 && (<p className=" text-[16px] md:text-[20px] font-light pl-8 ">The Problem We are Solving
-              Kodagu, despite its talent base, is held back by a harsh six-month monsoon
-              season that severely disrupts training and development. During this period,
-              natural grounds usually become unplayable, halting progress for young players
-              who need consistent, year-round preparation. <br /><br />
-              Meanwhile, professional leagues, scouting events, and youth competitions in
-              urban centers continue uninterrupted — creating a gap that disadvantages
-              players from Kodagu. Rain may stop play here, but opportunity elsewhere
-              doesn’t wait. This seasonal limitation means our players miss critical windows
-              for growth, selection, and performance on bigger stages. <br /><br />
-              With the senior division pre-season and the junior division leagues kicking off
-              just as the rains begin, we are forced to move to Bangalore, lugging our entire
-              squad, coaches, and support staff for a period of 6 long months. We seek
-              refuge on artificial turf in Bangalore while being dependent on rented facilities
-              and services. <br /><br />
-              While the senior team still manage to hone their skills on artificial turf, the
-              juniors in the academy at Kodagu struggle with irregular practice sessions,
-              stalling their progress. This setback not only disrupts momentum but also
-              inflates operational costs, making it tough to keep the club's activities running
-              smoothly. It is a financial strain for us and a blow to the morale of aspiring kids. <br /><br />
-              Worse still, the lack of a reliable training facility deters quality coaches from
-              joining, depriving Kodagu of mentorship for its budding talents. It's a tale of
-              perseverance against the elements, where the quest for success is washed in
-              rain and uncertainty. This isn't just a problem for the club; it's a blow to the
-              dreams of kids and youngsters who aspire to play football. Without a solid
-              infrastructure for consistent training, the beautiful game struggles to progress
-              in Kodagu.</p>)}
+                <span className="pb-[4px]">{openIndex === 1 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">How can I Donate and what is the minimum amount?
+              </p></div>
+            {openIndex === 1 && (<p className=" text-[16px] md:text-[20px] font-light pl-8 ">You can click on “Contribute now” button which will guide you through to the form to be filled
+              and submitted with your donation. Please ensure you upload the payment proof for our
+              records.<br />
+              The minimum contribution starts at ₹500, which symbolically represents sponsoring 1 square
+              foot of the turf/project. You can choose to sponsor multiple square feet. The target we are
+              trying to achieve is 1,00,000 sq.ft.</p>)}
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2  md:items-center items-start font-bold text-[24px]"
               onClick={() => handleToggle(6)}>
               <div className="h-6 w-6  shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                <span className="pb-[4px]">{openIndex === 6 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">How can I contribute?</p>  </div>
-            {openIndex === 6 && (<p className="md:text-[20px] text-base font-light  pl-8 ">You can contribute directly through this website. We offer simple payment
-              options. Every contribution big or small helps us move closer to our goal.
+                <span className="pb-[4px]">{openIndex === 6 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">How is my donation acknowledged?</p>  </div>
+            {openIndex === 6 && (<p className="md:text-[20px] text-base font-light  pl-8 ">Once you donate, you become part of the legacy. Your donation will symbolize the
+              number of grids against the amount. It is acknowledged in the below manner:<br />
+              a) Your name and your donation details will be mentioned on the contributors list. If
+              you are the highest contributor your name is listed in the Top 10 donors aswell.<br />
+              b) The grids your donation absorbs is mapped and reflected on the larger field grid
+              for everyone to see.<br />
+              c) You can anytime go and see the grids you have absorbed.<br />
+              d) Everyone will be able to see your name and your dedicated message towards the
+              project from the contributors list and the Field grids.<br />
+              e) Organizations with larger donations can also have their logos reflected on the
+              Donated grids.
             </p>)}
           </div>
           {showAll && (
@@ -492,117 +484,13 @@ export default function Home() {
                 <div className="h-6 w-6 shrink-0  items-center flex justify-center  rounded-full bg-black  text-white">
                   <span className="pb-1">{openIndex === 2 ? "-" : "+"}</span>
                 </div>
-                <p className="text-base md:text-2xl"> What is the beneficial impact of having an all weather FIFA-Certified Artificial
-                  Football Turf in Kodagu? </p>
+                <p className="text-base md:text-2xl"> Will I get a receipt or proof of donation? </p>
               </div>
-              {openIndex === 2 && (<div className="md:text-[20px] text-base font-light pl-8 ">Impact of Having a FIFA-Certified Artificial Football Turf in Kodagu :
-                <p className="font-semibold">  1. Year-Round Training & Uninterrupted Development</p>
-                <ul >
-                  <li>  - Enables continuous grassroots and youth football programs despite Kodagu’s
-                    6-month monsoon.</li>
-                  <li>  - Provides a consistent, high-quality surface for player development at all
-                    levels.</li>
-                  <li> - Ensures players maintain fitness, technical skills, and tactical awareness
-                    throughout the year.</li>
-                </ul>
-
-                <p className="font-semibold">  2. Professional-Quality Playing Conditions</p>
-                <ul >
-                  <li>   - Offers a top-tier surface that meets international standards for training and
-                    matches.</li>
-                  <li>  - Reduces injury risks compared to uneven or poorly maintained grass fields.</li>
-                  <li>   - Allows players to train like professionals, preparing them for higher levels of
-                    competition.</li>
-                </ul>
-
-                <p className="font-semibold">   3. Attracting & Retaining Talent</p>
-                <ul>
-                  <li>    - Encourages more young players to take up football seriously with world-class
-                    infrastructure.</li>
-                  <li>  - Attracts better coaches, trainers, and scouts from across the country,
-                    strengthening Kodagu FC’s development pipeline.</li>
-                  <li>   - Retains and motivates local talent, reducing the need to travel to other cities
-                    for better facilities.</li>
-                </ul>
-
-                <p className="font-semibold">    4. Hosting High-Quality Matches & Tournaments</p>
-                <ul >
-                  <li>     - Enables state and national-level tournaments to be hosted in Kodagu.</li>
-                  <li>   - Provides Kodagu with a home ground for competitive matches.</li>
-                  <li>  - Inspires young players by allowing them to watch and learn from top-level
-                    football in their own region.</li>
-                </ul>
-
-                <p className="font-semibold">      5. Strengthening Kodagu’s Brand & Football Ecosystem</p>
-                <ul >
-                  <li>   - Establishes Kodagu as a leading football development hub in Karnataka.</li>
-                  <li>    - Enhances sponsorship and investment opportunities by showcasing top-class
-                    infrastructure.</li>
-                  <li>  - Positions Kodagu as a footballing destination, boosting local sports tourism
-                    and economy.</li>
-                  <li> - Positions Kodagu as a footballing destination, boosting local sports tourism
-                    and economy.</li>
-                </ul>
-
-
-                <p className="font-semibold">       6. Long-Term Sustainability & Growth</p>
-                <ul >
-                  <li>   - Establishes Kodagu as a leading football development hub in Karnataka.</li>
-                  <li>    - Reduces maintenance costs compared to natural grass fields.</li>
-                  <li>  - Ensures higher utilization rates, maximizing the facility for training, matches,
-                    and events.</li>
-                  <li>    - Creates a self-sustaining football ecosystem, benefiting players, coaches, and
-                    the broader community.</li>
-                </ul>
-              </div>)}
-            </div>)}
-          {showAll && (
-            <div className="flex flex-col gap-2">
-              <div className="flex  md:items-center items-start gap-2  font-bold text-[24px]"
-                onClick={() => handleToggle(3)}>
-                <div className="h-6 w-6  shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                  <span className="pb-[4px]">{openIndex === 3 ? "-" : "+"}</span></div><p className="text-base md:text-2xl"> Without an all weather FIFA-Certified Artificial Football Turf in Kodagu, what is
-                    the scale of set back? </p></div>
-              {openIndex === 3 && (<div className="md:text-[20px] text-base font-light pl-8">
-                <p className="font-semibold" > 1. Disrupts Player Development & Skill Progression</p>
-                <ul className="mb-2" >
-                  <li>Inconsistent Training: Long gaps in training hinder skill acquisition and
-                    development.</li>
-                  <li>Loss of Momentum: Young players struggle to maintain fitness,
-                    technique, and tactical awareness.</li>
-                  <li>Delayed Learning Curve: Players take longer to grasp essential
-                    footballing principles due to interruptions.</li>
-                </ul>
-                <p className="font-semibold ">2. Physical & Tactical Setbacks</p>
-                <ul className="mb-2">
-                  <li>Reduced Match Readiness: Players lose sharpness, match fitness, and
-                    confidence.</li>
-                  <li>Limited Tactical Growth: Lack of regular practice hampers team
-                    coordination and game understanding.</li>
-                  <li>Injury Risks Increase: Players returning after long breaks are more
-                    prone to injuries due to sudden workload.</li>
-                </ul>
-                <p className="font-semibold">3. Weakens Grassroots & Youth Football Pipeline</p>
-                <ul className="mb-2">
-                  <li>Fewer Scouting & Exposure Opportunities: Without consistent training
-                    and matches, young talents miss chances to be identified.</li>
-
-                  <li>Reduced Player Retention: Extended breaks may lead to loss of
-                    interest and motivation among young players.</li>
-                  <li>Lack of Competitive Spirit: Without regular matches, players struggle
-                    to develop a winning mentality  </li>
-                </ul>
-                <p className="font-semibold">4. Affects Growth & Football Ecosystem</p>
-                <ul className="mb-2">
-                  <li>Struggles to Build a Strong Squad: Training disruptions make it harder
-                    to develop a competitive team.
-                  </li>
-
-                  <li>Difficulty in Maintaining a Structured Program: Long breaks make it
-                    challenging to implement a well-planned football curriculum.</li>
-                  <li>Lower Attraction for Coaches & Scouts: Inconsistent training
-                    environments deter high-level coaching and scouting opportunities. </li>
-                </ul>
+              {openIndex === 2 && (<div className="md:text-[20px] text-base font-light pl-8 ">Yes, you will receive an acknowledgment and a digital receipt via email once your
+                contribution is processed and verified. This typically takes up to 24 to 48 hours after
+                you contribute.<br />
+                All donations are routed through Subbayas Centre for Humanity & Excellence Trust,
+                which is a registered charitable trust.
               </div>)}
             </div>)}
           {showAll && (
@@ -611,11 +499,8 @@ export default function Home() {
                 onClick={() => handleToggle(4)}>
                 <div className="h-6 w-6  shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
                   <span className="pb-[4px]">{openIndex === 4 ? "-" : "+"}</span></div>
-                <p className="text-base md:text-2xl">  What does Phase 1 include? </p></div>
-              {openIndex === 4 && (<p className="md:text-[20px] text-base font-light pl-8">Phase 1 covers the installation of artificial turf, ground preparation, drainage
-                systems, lighting and the clearance area around the field which also enables
-                warm up. This phase focuses on creating a top-quality playing surface that can
-                be used year-round by aspiring players and the local football community.</p>
+                <p className="text-base md:text-2xl">Is my donation Tax exempted? </p></div>
+              {openIndex === 4 && (<p className="md:text-[20px] text-base font-light pl-8">Yes, donations are eligible for Tax exemption under 80G</p>
               )}
             </div>)}
           {showAll && (
@@ -624,9 +509,13 @@ export default function Home() {
                 onClick={() => handleToggle(5)}>
                 <div className="h-6 w-6  shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
                   <span className="pb-[4px]">{openIndex === 5 ? "-" : "+"}</span></div>
-                <p className="text-base md:text-2xl"> What is the total cost of Phase 1? </p></div>
-              {openIndex === 5 && (<p className="md:text-[20px] text-base font-light  pl-8 ">The estimated cost of Phase 1 is ₹5 crores. We are inviting individuals, families, and organizations
-                to contribute and be part of this foundational step.</p>)}
+                <p className="text-base md:text-2xl">Can I dedicate my contribution in someone’s name?</p></div>
+              {openIndex === 5 && (<p className="md:text-[20px] text-base font-light  pl-8 ">Yes, you can dedicate your contribution to a loved one. During the contribution process, in
+                the message section please mention the name you want to dedicate it to along with a message
+                supporting that Dedication. The message will be highlighted as you want.
+                You can mention the name in the Full Name Section as well. However, if you would need a
+                receipt for tax exemption then the donor has to mention his/her name. But in the message
+                section they can dedicate it to anyone. </p>)}
             </div>)}
           {showAll && (
             <div className="flex flex-col gap-2">
@@ -634,10 +523,13 @@ export default function Home() {
                 onClick={() => handleToggle(7)}>
                 <div className="h-6 w-6 shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
                   <span className="pb-[4px]">{openIndex === 7 ? "-" : "+"}</span></div>
-                <p className="text-base md:text-2xl">Is there a minimum amount I can donate?</p> </div>
-              {openIndex === 7 && (<p className="md:text-[20px] text-base font-light  pl-8">Yes, the minimum contribution starts at ₹500, which symbolically represents
-                sponsoring 1 square foot of the turf. You can choose to sponsor multiple square
-                feet.
+                <p className="text-base md:text-2xl">What does this Phase of the Project include and what is the total cost?</p> </div>
+              {openIndex === 7 && (<p className="md:text-[20px] text-base font-light  pl-8">This phase covers the ground preparation, drainage systems, installation of all-weather
+                football turf, lighting, appropriate clearance and boundary area around the field, Dug outs and
+                basic amenities around it.
+                It focuses on creating a top-quality playing surface that can be used year-round by aspiring
+                players and the local football youth community.
+                The estimated cost of this Phase is ₹5 crores.
               </p>)}
             </div>)}
           {showAll && (
@@ -645,59 +537,12 @@ export default function Home() {
               <div className="flex  md:items-center items-start gap-2  font-bold text-[24px]"
                 onClick={() => handleToggle(8)}>
                 <div className="h-6 w-6 shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                  <span className="pb-[4px]">{openIndex === 8 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">Will I get a receipt or proof of donation?</p></div>
-              {openIndex === 8 && (<p className="md:text-[20px] text-base font-light  pl-8 ">Yes, you will receive an acknowledgment and a digital receipt via email once
-                your contribution is processed and verified. This typically takes up to 24 hours after you contribute. All donations are routed through Subbayas Centre for
-                Humanity & Excellence Trust, a registered charitable trust.
-              </p>)}
-            </div>)}
-          {showAll && (
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2  md:items-center items-start font-bold text-[24px]"
-                onClick={() => handleToggle(9)}>
-                <div className="h-6 w-6 shrink-0  flex items-center justify-center  rounded-full bg-black  text-white">
-                  <span className="pb-[4px]">{openIndex === 9 ? "-" : "+"}</span></div>
-                <p className="text-base md:text-2xl">Is my donation tax-deductible?</p></div>
-              {openIndex === 9 && (<p className="md:text-[20px] text-base font-light  pl-8">Yes, donations are eligible for tax deduction under Section 80G of the Income
-                Tax Act.
-              </p>)}
-            </div>)}
-          {showAll && (
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2  md:items-center items-start font-bold text-[24px]"
-                onClick={() => handleToggle(10)}>
-                <div className="h-6 w-6 shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                  <span className="pb-[4px]">{openIndex === 10 ? "-" : "+"}</span></div>
-                <p className="text-base md:text-2xl">How can I track the progress of the project?</p></div>
-              {openIndex === 10 && (<p className="md:text-[20px] text-base font-light  pl-8 ">We will share regular updates on this website and our social media handles.
-                Donors can also view their contribution marked live on our interactive turf grid,
-                visualizing the collective progress.
-              </p>)}
-            </div>)}
-          {showAll && (
-            <div className="flex flex-col gap-2">
-              <div className="flex  gap-2  md:items-center items-start font-bold text-[24px]"
-                onClick={() => handleToggle(11)}>
-                <div className="h-6 w-6  shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                  <span className="pb-[4px]">{openIndex === 11 ? "-" : "+"}</span></div>
-                <p className="text-base md:text-2xl">Can I dedicate my contribution in someone’s name?</p></div>
-              {openIndex === 11 && (<p className="md:text-[20px] text-base font-light pl-8 ">Yes, you can dedicate your contribution to a loved one. Let us know during the
-                donation process, and we will reflect it appropriately on our digital wall of
-                supporters.
-              </p>)}
-            </div>)}
-          {showAll && (
-            <div className="flex flex-col gap-2">
-              <div className="flex gap-2  md:items-center items-start font-bold text-[24px]"
-                onClick={() => handleToggle(12)}>
-                <div className="h-6 w-6  shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
-                  <span className="pb-[4px]">{openIndex === 12 ? "-" : "+"}</span></div>
-
-                <p className="text-base md:text-2xl"> Who is behind this initiative?</p></div>
-              {openIndex === 12 && (<p className="md:text-[20px] text-base font-light  pl-8 ">The project is led by Kodagu FC, under the aegis of Subbayas Centre for
-                Humanity and Excellence Trust, a grassroots initiative committed to developing
-                footballers across Kodagu through structured training, and access to
-                opportunities.
+                  <span className="pb-[4px]">{openIndex === 8 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl">How can I track the progress of the project?</p></div>
+              {openIndex === 8 && (<p className="md:text-[20px] text-base font-light  pl-8 ">You can continue to visit, stadium.kodagufc.com for all the updates on the fundraising and
+                the project. The Dashboard will give you regular updates. We will try to keep it on real time
+                as possible.<br />
+                Once we achieve the funds needed you will find the project shaping up on the field in detail.
+                The project progression report will be put up for every donor to check.
               </p>)}
             </div>)}
           <button
