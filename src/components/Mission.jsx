@@ -293,7 +293,7 @@ const Mission = () => {
 
     return (
         <div
-            className="h-fit min-h-screen py-20 px-4 md:px-10"
+            className="h-fit min-h-screen py-20 px-4 md:px-10 my-10"
             style={{
                 backgroundImage: `url('/images/publicpitch.png')`,
                 backgroundSize: "cover",
