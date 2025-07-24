@@ -110,7 +110,7 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
           ctx.putImageData(imageData, x, y);
 
           if (selectedDonation && donation.id === selectedDonation.id) {
-            ctx.fillStyle = "rgba(0,255,0,0.9)";
+            ctx.fillStyle = "rgba(0,255,0,1)";
             ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
           }
 
