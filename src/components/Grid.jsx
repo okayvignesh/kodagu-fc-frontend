@@ -24,17 +24,6 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
   // New state to store detailed API response for clicked donation
   const [donationId, setDonationId] = useState(null);
   const [donationByIdResponse, setDonationByIdResponse] = useState(null);
-  const [blink, setBlink] = useState(true);
-
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBlink(prev => !prev);
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
 
   useEffect(() => {
     if (!donationId) return;
@@ -121,13 +110,8 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
           ctx.putImageData(imageData, x, y);
 
           if (selectedDonation && donation.id === selectedDonation.id) {
-            if (blink) {
-              // ctx.shadowColor = "lime";
-              // ctx.shadowBlur = 20;
-              ctx.fillStyle = blink ? "rgba(0,255,0,0.9)" : "rgba(0,255,0,0.6)";
-              ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
-              // ctx.shadowBlur = 0;
-            }
+            ctx.fillStyle = "rgba(0,255,0,0.9)";
+            ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
           }
 
 
@@ -148,7 +132,7 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
         ctx.strokeRect(x, y, CELL_WIDTH, CELL_HEIGHT);
       }
     }
-  }, [image, donations, highlightedDonor, selectedDonation, blink]);
+  }, [image, donations, highlightedDonor, selectedDonation]);
 
   const handleMouseMove = (e) => {
     // If we have detailed API data from clicked cell, don't show hover tooltip
