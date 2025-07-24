@@ -24,6 +24,17 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
   // New state to store detailed API response for clicked donation
   const [donationId, setDonationId] = useState(null);
   const [donationByIdResponse, setDonationByIdResponse] = useState(null);
+  const [blink, setBlink] = useState(true);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink(prev => !prev);
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
 
   useEffect(() => {
     if (!donationId) return;
@@ -75,9 +86,7 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
     img.onload = () => {
       setImage(img);
       setLoading(false);
-   
     }
-    
   }, []);
 
   useEffect(() => {
@@ -112,9 +121,15 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
           ctx.putImageData(imageData, x, y);
 
           if (selectedDonation && donation.id === selectedDonation.id) {
-            ctx.fillStyle = "rgba(0, 200, 0, 0.7)";
-            ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
+            if (blink) {
+              // ctx.shadowColor = "lime";
+              // ctx.shadowBlur = 20;
+              ctx.fillStyle = blink ? "rgba(0,255,0,0.9)" : "rgba(0,255,0,0.6)";
+              ctx.fillRect(x, y, CELL_WIDTH, CELL_HEIGHT);
+              // ctx.shadowBlur = 0;
+            }
           }
+
 
           if (highlightedDonor && donation.name === highlightedDonor) {
             ctx.strokeStyle = "yellow";
@@ -133,7 +148,7 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
         ctx.strokeRect(x, y, CELL_WIDTH, CELL_HEIGHT);
       }
     }
-  }, [image, donations, highlightedDonor, selectedDonation]);
+  }, [image, donations, highlightedDonor, selectedDonation, blink]);
 
   const handleMouseMove = (e) => {
     // If we have detailed API data from clicked cell, don't show hover tooltip
@@ -365,80 +380,81 @@ const DonationGridCanvas = ({ data, onClose, selectedDonation }) => {
   }, [donationByIdResponse, donations]);
 
 
-   useEffect(() => {
-        // Push a dummy state when modal opens
-        window.history.pushState({ modalOpen: true }, '');
-    
-        const handlePopState = () => {
-          if (onClose) {
-            onClose(); // close modal
-          } else {
-            router.replace('/'); // fallback to redirecting home
-          }
-        };
-    
-        window.addEventListener('popstate', handlePopState);
-    
-        return () => {
-          window.removeEventListener('popstate', handlePopState);
-        };
-      }, [router, onClose]);
+  useEffect(() => {
+    // Push a dummy state when modal opens
+    window.history.pushState({ modalOpen: true }, '');
+
+    const handlePopState = () => {
+      if (onClose) {
+        onClose(); // close modal
+      } else {
+        router.replace('/'); // fallback to redirecting home
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [router, onClose]);
   return (
     <div className="fixed inset-0 z-50 w-full h-full overflow-y-scroll backdrop-blur bg-white bg-opacity-80">
       {
-            loading ? (
-             <div className="flex items-center h-[100vh] justify-center flex-col gap-2 ">
-      <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500" />
-       <p>Loading Grids...</p>
-       </div>
-           
-            ) : (
-    <div>
-    <div className="w-full flex items-center px-12 pt-6">
-        <div className="flex  md:flex-row flex-col gap-5">
-          <div className="flex  gap-3 items-center">
-            <div>
-              <span className="h-4 w-4 inline-block bg-[#15B006] border border-black"></span>
+        loading ? (
+          <div className="flex items-center h-[100vh] justify-center flex-col gap-2 ">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-blue-500" />
+            <p>Loading Grids...</p>
+          </div>
+
+        ) : (
+          <div>
+            <div className="w-full flex items-center px-12 pt-6">
+              <div className="flex  md:flex-row flex-col gap-5">
+                <div className="flex  gap-3 items-center">
+                  <div>
+                    <span className="h-4 w-4 inline-block bg-[#15B006] border border-black"></span>
+                  </div>
+                  <p>User Grids</p>
+                </div>
+                <div className="flex gap-3 items-center">
+                  <span className="h-4 w-4 inline-block bg-[#52841D] border border-black"></span>
+                  <p>Donated Grids</p>
+                </div>
+                <div className="flex gap-3 items-center">
+                  <span className="h-4 w-4 inline-block bg-[#656C5E] border border-black"></span>
+                  <p>Undonated Grids</p>
+                </div>
+              </div>
+              <X onClick={onClose} className="ml-auto cursor-pointer" />
             </div>
-            <p>User Grids</p>
-          </div>
-          <div className="flex gap-3 items-center">
-            <span className="h-4 w-4 inline-block bg-[#52841D] border border-black"></span>
-            <p>Donated Grids</p>
-          </div>
-          <div className="flex gap-3 items-center">
-            <span className="h-4 w-4 inline-block bg-[#656C5E] border border-black"></span>
-            <p>Undonated Grids</p>
-          </div>
-        </div>
-        <X onClick={onClose} className="ml-auto cursor-pointer" />
-      </div>
 
-      <div className="flex flex-col gap-10 items-center justify-start w-full px-4 py-8">
-        <div className="relative w-full max-w-[1400px]">
-        
-              <canvas
-                ref={canvasRef}
-                width={CANVAS_WIDTH}
-                height={CANVAS_HEIGHT}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => (tooltipRef.current.style.display = "none")}
-                onClick={handleClick}
-                className="w-full h-auto border border-gray-300 cursor-pointer bg-gray-200"
-              />
+            <div className="flex flex-col gap-10 items-center justify-start w-full px-4 py-8">
+              <div className="relative w-full max-w-[1400px]">
 
-          
-          <div
-            ref={tooltipRef}
-            className="absolute bg-white text-black p-5 rounded-lg text-base hidden pointer-events-none max-w-[300px] shadow-lg border border-gray-300 transform -translate-x-1/2"
-          />
-        </div>
-      </div>
-      </div>
+                <canvas
+                  ref={canvasRef}
+                  width={CANVAS_WIDTH}
+                  height={CANVAS_HEIGHT}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={() => (tooltipRef.current.style.display = "none")}
+                  onClick={handleClick}
+                  className="w-full h-auto border border-gray-300 cursor-pointer bg-gray-200"
+                />
+
+
+
+                <div
+                  ref={tooltipRef}
+                  className="absolute bg-white text-black p-5 rounded-lg text-base hidden pointer-events-none max-w-[300px] shadow-lg border border-gray-300 transform -translate-x-1/2"
+                />
+              </div>
+            </div>
+          </div>
         )
 
 
-          }
+      }
     </div>
   );
 };

@@ -238,10 +238,10 @@ export default function Home() {
 
               <div className="flex flex-col gap-2 w-full p-4 rounded-[5.52px] shadow-md bg-white text-black border border-[#E3E3E3]">
                 <div className="flex justify-between">
-                  <p>Total sq.ft funded</p>
+                  <p>Total grids funded</p>
                   <MdFullscreen />
                 </div>
-                <p className="font-bold text-[24px]">{TotalGrids} sq.ft</p>
+                <p className="font-bold text-[24px]">{TotalGrids} grids</p>
               </div>
 
               <div className="flex flex-col gap-2 w-full p-4 rounded-[5.52px] shadow-md bg-white text-black border border-[#E3E3E3]">
@@ -249,13 +249,13 @@ export default function Home() {
                   <p>The Gap</p>
                   <TiDocumentText />
                 </div>
-                <p className="font-bold text-[24px]">{gap} sq.ft</p>
+                <p className="font-bold text-[24px]">{gap} grids</p>
               </div>
             </div>
 
             {/* Pitch Image Grid */}
             <div className="flex flex-col gap-[7px] border border-[#E3E3E3] rounded-[20px] p-4 shadow-md">
-              <p className="font-bold">1 Grid = 1 sq.ft = &#8377;500</p>
+              <p className="font-bold">1 Grid = &#8377;500</p>
               <div
                 className="relative w-full aspect-[16/10] cursor-pointer rounded-lg overflow-hidden"
                 onClick={() => setOpenGrid(true)}
@@ -371,7 +371,7 @@ export default function Home() {
 
           </div>
         </div>
-        
+
         {/* <div className="md:p-10 p-5 flex flex-col gap-3">
           <p className="text-transparent bg-clip-text md:text-[40px] text-[24px] font-extrabold"
             style={{
@@ -442,9 +442,7 @@ export default function Home() {
             >
               <div className="h-6 w-6 shrink-0 flex items-center justify-center  rounded-full bg-black  text-white">
                 <span className="pb-[4px]">{openIndex === 0 ? "-" : "+"}</span></div> <p className="text-base md:text-2xl"> How can I support this project?</p> </div>
-            {openIndex === 0 && (<p className="md:text-[20px] text-[16px] font-light  pl-8">You can support by contributing towards the project by donating as many grids you would
-              want. Each grid you contribute represents each square feet that this project cost is divided
-              by. The target to achieve is 1lac Square feet.
+            {openIndex === 0 && (<p className="md:text-[20px] text-[16px] font-light  pl-8">You can support this project by contributing towards as many grids as you wish. Each grid represents a unit of the overall project, helping us break down the total cost into achievable parts. Our goal is to complete 1,00,000 such grids to achieve the target.
             </p>
             )}
           </div>
@@ -457,9 +455,7 @@ export default function Home() {
             {openIndex === 1 && (<p className=" text-[16px] md:text-[20px] font-light pl-8 ">You can click on “Contribute now” button which will guide you through to the form to be filled
               and submitted with your donation. Please ensure you upload the payment proof for our
               records.<br />
-              The minimum contribution starts at ₹500, which symbolically represents sponsoring 1 square
-              foot of the turf/project. You can choose to sponsor multiple square feet. The target we are
-              trying to achieve is 1,00,000 sq.ft.</p>)}
+              The minimum contribution starts at ₹500, symbolically representing your support for one unit of the project, i.e One Grid. You can choose to sponsor as many units / grids as you would like. Our collective goal is to reach 1,00,000 such units / grids to complete the field.</p>)}
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex gap-2  md:items-center items-start font-bold text-[24px]"
