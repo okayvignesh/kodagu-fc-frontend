@@ -23,8 +23,9 @@ const anton = Anton({
 
 export const metadata = {
   title: "All-Weather Football Field in Kodagu",
-  description: "Let us Build it Together",
+  description: "\"Let us Build it Together\"",
 };
+
 
 export default function RootLayout({ children }) {
   return (
