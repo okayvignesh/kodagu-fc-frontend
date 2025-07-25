@@ -22,8 +22,8 @@ const anton = Anton({
 });
 
 export const metadata = {
-  title: "Kodagu Football Club",
-  description: "Kodagu Football Club",
+  title: "All-Weather Football Field in Kodagu",
+  description: "Let us Build it Together",
 };
 
 export default function RootLayout({ children }) {
